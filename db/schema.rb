@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317024215) do
+ActiveRecord::Schema.define(version: 20160317042218) do
 
   create_table "documents", force: :cascade do |t|
     t.text     "body"
-    t.integer  "interesting"
-    t.integer  "funny"
-    t.integer  "boring"
+    t.integer  "interesting", default: 0
+    t.integer  "funny",       default: 0
+    t.integer  "boring",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
