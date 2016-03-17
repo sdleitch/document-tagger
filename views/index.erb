@@ -1,4 +1,7 @@
-<h3><a href="/tag">Tag some docs!</a></h3>
+<% unless session[:tagged_docs].nil? %>
+  <strong>You've tagged <%= session[:tagged_docs].length %> document<% unless session[:tagged_docs].length == 1 %>s<% end %>!</strong>
+<% end %>
+<h3><a href="/tag/">Tag some docs!</a></h3>
 <ul>
   <% @documents.each do |doc| %>
     <li>
