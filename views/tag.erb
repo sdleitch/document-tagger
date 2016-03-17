@@ -1,0 +1,10 @@
+<h2>Tag Document</h2>
+<p>
+  <%= @document.body %>
+</p>
+<form action="/tag/" method="post">
+  WOW! <input type="checkbox" name="interesting"><br>
+  LOL! <input type="checkbox" name="funny"><br>
+  Boring. <input type="checkbox" name="boring"><br>
+  <button type="submit" name="id" value="<%= @document.id %>">Submit</button>
+</form>
