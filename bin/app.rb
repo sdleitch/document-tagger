@@ -19,5 +19,10 @@ end
 post '/tag/' do
   @document = Document.find(params['id'])
   @document.tag_document(params)
-  redirect to('/')
+  redirect to '/'
+end
+
+get '/:id/' do
+  @document = Document.find(params['id'])
+  erb :view_document
 end
