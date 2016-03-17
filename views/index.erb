@@ -1,0 +1,11 @@
+<ul>
+  <% @documents.each do |doc| %>
+    <li>
+      <p>Created: <%= doc.created_at %></p>
+      <p>Hmmm: <%= doc.interesting %></p>
+      <p>LOL count: <%= doc.funny %></p>
+      <p>Boring count: <%= doc.boring %></p>
+      <p><%= doc.body %></p>
+    </li>
+  <% end %>
+</ul>

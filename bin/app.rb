@@ -7,3 +7,8 @@ set :views, "views"
 
 class Document < ActiveRecord::Base
 end
+
+get '/' do
+  @documents = Document.all
+  erb :index
+end
