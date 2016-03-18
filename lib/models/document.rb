@@ -3,6 +3,7 @@ class Document < ActiveRecord::Base
     self.interesting += 1 if params['interesting'] == 'on'
     self.funny += 1 if params['funny'] == 'on'
     self.boring += 1 if params['boring'] == 'on'
+    self.times_tagged += 1
     self.save!
   end
 end
