@@ -8,7 +8,7 @@ set :views, "views"
 
 enable :sessions
 set :session_secret, 'NOT_SO_SCRET_CHANGE_THIS', # Random gen secret for this and replace
-    expire_after: 172800 # 2 days
+    expire_after: 172800 # 2 days (172,800 seconds)
 
 get '/' do
   session[:tagged_docs] = [] if session[:tagged_docs].nil?
@@ -30,5 +30,5 @@ end
 
 get '/:id/' do
   @document = Document.find(params['id'])
-  erb :view_document
+  erb :view
 end

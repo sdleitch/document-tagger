@@ -1,12 +1,1 @@
 <h3><a href="/tag/">Tag some docs!</a></h3>
-<ul>
-  <% @documents.each do |doc| %>
-    <li>
-      <p>Created: <%= doc.created_at %></p>
-      <p>Hmmm: <%= doc.interesting %></p>
-      <p>LOL count: <%= doc.funny %></p>
-      <p>Boring count: <%= doc.boring %></p>
-      <p><%= doc.body %></p>
-    </li>
-  <% end %>
-</ul>
