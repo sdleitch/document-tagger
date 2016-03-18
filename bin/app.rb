@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
-require'./lib/models/document.rb'
+require'./lib/models/document'
 
 set :public_folder, "static"
 set :views, "views"
