@@ -7,6 +7,8 @@ set :public_folder, "static"
 set :views, "views"
 
 enable :sessions
+set :session_secret, 'NOT_SO_SCRET_CHANGE_THIS', # Random gen secret for this and replace
+    expire_after: 172800 # 2 days
 
 get '/' do
   session[:tagged_docs] = [] if session[:tagged_docs].nil?
