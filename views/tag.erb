@@ -2,6 +2,9 @@
 <p>
   <%= @document.body %>
 </p>
+<p>
+  Times tagged: <%= @document.times_tagged %>
+</p>
 <form action="/tag/" method="post">
   WOW! <input type="checkbox" name="interesting"><br>
   LOL! <input type="checkbox" name="funny"><br>
