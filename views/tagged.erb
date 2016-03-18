@@ -1,0 +1,13 @@
+<% tagged = session[:tagged_docs].length %>
+<% unless tagged == 0 || session[:tagged_docs].nil? %>
+  <strong>
+    You've tagged <%= tagged %> document<% unless tagged == 1 %>s<% end %>!
+    <% if tagged < 5 %>
+      Tag <%= 5 - tagged %> more and see the most popular.
+    <% else %>
+      Thanks for the help!
+    <% end %>
+  </strong>
+<% else %>
+  <strong>Help us tag documents! Tag 5 and we'll let you see the most popular.</strong>
+<% end %>
