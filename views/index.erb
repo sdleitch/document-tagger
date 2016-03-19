@@ -1,1 +1,8 @@
 <h3><a href="/tag/">Tag some docs!</a></h3>
+<ul>
+  <% @documents.each do |doc| %>
+    <h3><%= doc.times_tagged %></h3>
+    <p><%= doc.body.truncate(50) %></p>
+    </li>
+  <% end %>
+</ul>
