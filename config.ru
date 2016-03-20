@@ -1,2 +1,2 @@
-require "./bin/app"
+require "./app"
 run Sinatra::Application

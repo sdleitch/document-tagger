@@ -1,4 +1,4 @@
-require "./bin/app.rb"
+require "./app.rb"
 require "test/unit"
 
 class TestApp < Test::Unit::TestCase

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318032938) do
+ActiveRecord::Schema.define(version: 20160319163952) do
 
   create_table "documents", force: :cascade do |t|
     t.text     "body"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160318032938) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "times_tagged", default: 0
+    t.string   "filename"
   end
 
 end

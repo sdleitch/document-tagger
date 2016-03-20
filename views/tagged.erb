@@ -1,4 +1,4 @@
-<% tagged = session[:tagged_docs].length %>
+<% tagged = session[:tagged_docs].length if !session[:tagged_docs].nil? %>
 <% unless tagged == 0 || session[:tagged_docs].nil? %>
   <strong>
     You've tagged <%= tagged %> document<% unless tagged == 1 %>s<% end %>!
