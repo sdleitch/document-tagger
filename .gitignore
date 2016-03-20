@@ -1,6 +1,7 @@
 dev.db
 db/seeds.rb
 public/documents/*
+public/raw_documents/*
 
 # Logs and databases #
 ######################

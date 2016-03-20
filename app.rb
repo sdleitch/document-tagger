@@ -3,8 +3,8 @@ require 'sinatra/activerecord'
 require './environments'
 require'./lib/document'
 
-set :session_secret, 'NOT_SO_SCRET_CHANGE_THIS', # Random gen secret for this and replace
-    expire_after: 172800 # 2 days (172,800 seconds)
+set :session_secret, 'NOT_SO_SCRET_CHANGE_THIS' # Random gen secret for this and replace
+set :sessions, expire_after: 10 # 2 days (172,800 seconds)
 
 get '/' do
   session[:tagged_docs] = [] if session[:tagged_docs].nil?

@@ -5,6 +5,7 @@ gem "activerecord"
 gem "rake"
 
 group :development do
+  gem "docsplit"
   gem "tux"
   gem "sqlite3"
 end
