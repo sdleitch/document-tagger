@@ -1,13 +1,20 @@
-<h2>Tag Document</h2>
-<p>
-  <%= @document.body %>
-</p>
-<p>
-  Times tagged: <%= @document.times_tagged %>
-</p>
 <form action="/tag/" method="post">
-  WOW! <input type="checkbox" name="interesting"><br>
-  LOL! <input type="checkbox" name="funny"><br>
+  WOW! <input type="checkbox" name="interesting">
+  LOL! <input type="checkbox" name="funny">
   Boring. <input type="checkbox" name="boring"><br>
   <button type="submit" name="id" value="<%= @document.id %>">Submit</button>
 </form>
+<p>Times tagged: <%= @document.times_tagged %></p>
+<p>
+  <%= session[:tagged_docs] %>
+</p>
+<% if @document.filename? %>
+  <div class="document-display">
+    <iframe src="/documents/<%= @document.filename %>" width="620px" height="857px">Your Browser doesn't seem to support iframes.</iframe>
+  </div>
+<% end %>
+<% if @document.body? %>
+  <p class="document-body">
+    <%= @document.body %>
+  </p>
+<% end %>

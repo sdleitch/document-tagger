@@ -7,19 +7,21 @@ class Document < ActiveRecord::Base
     self.save!
   end
 
-  # def self.pick_document
-  #   # This method will be used to weight the chance a Document will be selected,
-  #   # skewing to those which have been tagged fewer times.
-  #   #
-  #   # If new Documents are added later, after tagging has begun,
-  #   # those new Documents will have a higher probability of being
-  #   # shown to the user. They will eventually be tagged ~ as older Documents.
-  #   documents = self.all
-  #   weights = {}
-  #   cumulative_tags = 0
-  #   documents.each do |doc|
-  #     cumulative_tags += doc.times_tagged
-  #     weights[doc.id] = doc.times_tagged
-  #   end
-  # end
+  def self.pick_document(tagged_docs)
+    ### TO-DO: THE BELOW DOCUMENTATION IS NOT YET IMPLEMENTED ###
+    # This method will be used to weight the chance a Document will be selected,
+    # skewing to those which have been tagged fewer times.
+    #
+    # If new Documents are added later, after tagging has begun,
+    # those new Documents will have a higher probability of being
+    # shown to the user. They will eventually be tagged ~ as older Documents.
+    documents = self.all
+    doc = documents.sample
+    document_ids = documents.map { |doc| doc.id }
+    if !tagged_docs.include?(doc.id) || (document_ids - tagged_docs).empty?
+      return doc
+    else
+      self.pick_document(tagged_docs)
+    end
+  end
 end
