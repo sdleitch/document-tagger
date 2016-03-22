@@ -36,7 +36,7 @@ end
 
 get '/view/:tag/' do |tag|
   if session[:tagged_docs].length > 4
-    # Get top documents...
+    # Get top documents and sort, most to fewest, by tag parameter.
     @documents = Document.all.sort { |a, b| b[tag] <=> a[tag] }
   else
     session[:flash_message] = "Please help us out by tagging a few more documents before viewing them! It's your help which makes the project possible."
