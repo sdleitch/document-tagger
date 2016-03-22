@@ -7,6 +7,19 @@ class Document < ActiveRecord::Base
     self.save!
   end
 
+  def to_text
+    # Read the PDF document and return a String of text from it.
+    filename = 'public/documents/' + self.filename
+    Docsplit.extract_text(filename, ocr: false, output: Dir.tmpdir)
+
+    txt_file = File.basename(filename, File.extname(filename)) + '.txt'
+    txt_filename = Dir.tmpdir + '/' + txt_file
+    extracted_text = File.read(txt_filename)
+    File.delete(txt_filename)
+
+    return extracted_text
+  end
+
   def self.pick_document(tagged_docs)
     ### TO-DO: THE BELOW DOCUMENTATION IS NOT YET IMPLEMENTED ###
     # This method will be used to weight the chance a Document will be selected,
@@ -24,4 +37,6 @@ class Document < ActiveRecord::Base
       self.pick_document(tagged_docs)
     end
   end
+
+
 end

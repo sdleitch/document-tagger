@@ -1,7 +1,11 @@
+<h2>Documents most tagged as '<%= params['tag'] %>'.</h2>
 <ul>
-  <% @documents.each do |doc| %>
+  <% @documents[0..4].each do |doc| %>
     <li>
-      <%= "#{doc.id}: #{doc[params['tag']]}" %>
+      <%= "ID: #{doc.id}, times tagged as '#{params['tag']}': #{doc[params['tag']]}" %>
+      <% if doc.body %>
+        <%= doc.body %>
+      <% end %>
     </li>
   <% end %>
 </ul>
