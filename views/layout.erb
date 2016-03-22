@@ -6,6 +6,12 @@
   </head>
   <body>
     <div class="wrapper">
+      <% if session[:flash_message] %>
+        <div class="message">
+          <p><%= session[:flash_message] %></p>
+          <% session[:flash_message] = nil %>
+        </div>
+      <% end %>
       <%= erb :tagged %>
       <%= yield %>
     </div>

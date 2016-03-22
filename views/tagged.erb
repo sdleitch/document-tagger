@@ -4,9 +4,9 @@
   <strong>
     You've tagged <%= tagged %> document<% unless tagged == 1 %>s<% end %>!
     <% if tagged < 5 %>
-    Tag <%= 5 - tagged %> more and see the most popular.
+    Tag <%= 5 - tagged %> more to see the others.
     <% else %>
-    Thanks for the help!
+    Thanks for the help! <a href="/">See the top documents</a> or <a href="/tag/">keep tagging!</a>
     <% end %>
   </strong>
   <% else %>

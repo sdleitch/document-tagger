@@ -1,0 +1,7 @@
+<ul>
+  <% @documents.each do |doc| %>
+    <li>
+      <%= "#{doc.id}: #{doc[params['tag']]}" %>
+    </li>
+  <% end %>
+</ul>

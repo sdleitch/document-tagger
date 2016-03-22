@@ -3,7 +3,7 @@ require 'sinatra/activerecord'
 require './environments'
 require'./lib/document'
 
-set :session_secret, 'NOT_SO_SCRET_CHANGE_THIS' # Random gen secret for this and replace
+set :session_secret, 'NOT_SO_SCRET' # Random gen secret for this and replace
 set :sessions, expire_after: 172800 # 2 days (172,800 seconds)
 
 get '/' do
@@ -25,6 +25,22 @@ post '/tag/' do
 end
 
 get '/:id/' do
-  @document = Document.find(params['id'])
+  if session[:tagged_docs].length > 4
+    @document = Document.find(params['id'])
+  else
+    session[:flash_message] = "Please help us out by tagging a few more documents before viewing them! It's your help which makes the project possible."
+    redirect '/tag/'
+  end
   erb :view
+end
+
+get '/view/:tag/' do |tag|
+  if session[:tagged_docs].length > 4
+    # Get top documents...
+    @documents = Document.all.sort { |a, b| b[tag] <=> a[tag] }
+  else
+    session[:flash_message] = "Please help us out by tagging a few more documents before viewing them! It's your help which makes the project possible."
+    redirect '/tag/'
+  end
+  erb :display_top
 end
