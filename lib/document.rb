@@ -7,6 +7,11 @@ class Document < ActiveRecord::Base
     self.save!
   end
 
+  def get_body
+    self.body = self.to_text
+    self.save!
+  end
+
   def to_text
     # Read the PDF document and return a String of text from it.
     filename = 'public/documents/' + self.filename

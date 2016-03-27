@@ -4,7 +4,9 @@
   </div>
 <% end %>
 <% if @document.body? %>
-  <p class="document-body">
-    <%= @document.body %>
-  </p>
+  <div class="document-body">
+    <% @document.body.each_line('') do |line| %>
+      <p><%= line %></p>
+    <% end %>
+  </div>
 <% end %>

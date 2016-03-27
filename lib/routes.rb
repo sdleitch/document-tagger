@@ -6,7 +6,7 @@ end
 
 get '/tag/' do
   @document = Document.pick_document(session[:tagged_docs])
-  @document.body = @document.to_text if @document.body.nil?
+  @document.get_body if @document.body.nil?
   erb :tag
 end
 
@@ -20,7 +20,7 @@ end
 get '/:id/' do
   if session[:tagged_docs].length > 4
     @document = Document.find(params['id'])
-    @document.body = @document.to_text if @document.body.nil?
+    @document.get_body if @document.body.nil?
   else
     session[:flash_message] = "Please help us out by tagging a few more documents before viewing them! It's your help which makes the project possible."
     redirect '/tag/'
