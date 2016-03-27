@@ -4,6 +4,7 @@
   </div>
 <% end %>
 <% if @document.body? %>
+  <h4>The below is text digitally extracted from the file. It could be inaccurate or formatted incorrectly.</h4>
   <div class="document-body">
     <% @document.body.each_line('') do |line| %>
       <p><%= line %></p>

@@ -1,10 +1,10 @@
-<h2>Documents most tagged as '<%= params['tag'] %>'.</h2>
+<h2>Documents most tagged as '<%= params['tag'] %>'</h2>
 <ul>
   <% @documents[0..4].each do |doc| %>
     <li>
       <%= "ID: #{doc.id}, times tagged as '#{params['tag']}': #{doc[params['tag']]}" %>
       <% if doc.body %>
-        <%= doc.body %>
+        <a href="/<%= doc.id %>/"><%= doc.body.truncate(100) %></a>
       <% end %>
     </li>
   <% end %>
