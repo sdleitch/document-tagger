@@ -1,6 +1,6 @@
 <ul>
-  <li>Interesting: <%= @document.interesting %></li>
-  <li>Funny: <%= @document.funny %></li>
-  <li>Boring: <%= @document.boring %></li>
+  <% TAGS.each do |tag| %>
+    <li><%= tag.to_s.capitalize %>: <%= @document[tag] %></li>
+  <% end %>
 </ul>
 <%= erb :document %>

@@ -1,6 +1,6 @@
 <% if @document.filename? %>
   <div class="document-display">
-    <iframe src="/documents/<%= @document.filename %>" width="620px" height="857px">Your Browser doesn't seem to support iframes.</iframe>
+    <iframe src="<%= DOC_PATH + @document.filename %>" width="620px" height="857px">Your Browser doesn't seem to support iframes.</iframe>
   </div>
 <% end %>
 <% if @document.body? %>

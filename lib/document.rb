@@ -1,8 +1,11 @@
 class Document < ActiveRecord::Base
   def tag_document(params)
-    self.interesting += 1 if params['interesting'] == 'on'
-    self.funny += 1 if params['funny'] == 'on'
-    self.boring += 1 if params['boring'] == 'on'
+    TAGS.each do |tag|
+      self[tag] += 1 if params[tag.to_s] == 'on'
+    end
+    # self.interesting += 1 if params['interesting'] == 'on'
+    # self.funny += 1 if params['funny'] == 'on'
+    # self.boring += 1 if params['boring'] == 'on'
     self.times_tagged += 1
     self.save!
   end
@@ -14,7 +17,7 @@ class Document < ActiveRecord::Base
 
   def to_text
     # Read the PDF document and return a String of text from it.
-    filename = 'public/documents/' + self.filename
+    filename = 'public' + DOC_PATH + self.filename
     Docsplit.extract_text(filename, ocr: false, output: Dir.tmpdir)
 
     txt_file = File.basename(filename, File.extname(filename)) + '.txt'

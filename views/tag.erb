@@ -1,7 +1,8 @@
 <form action="/tag/" method="post">
-  WOW! <input type="checkbox" name="interesting">
-  LOL! <input type="checkbox" name="funny">
-  Boring. <input type="checkbox" name="boring"><br>
+  <% TAGS.each do |tag| %>
+    <%= tag.to_s.capitalize %>: <input type="checkbox" name="<%= tag.to_s %>">
+  <% end %>
+  <br>
   <button type="submit" name="id" value="<%= @document.id %>">Submit</button>
 </form>
 <p>Times tagged: <%= @document.times_tagged %></p>
